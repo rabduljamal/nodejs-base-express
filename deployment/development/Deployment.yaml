@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: snip-cms-be
+  namespace: development
+  labels:
+      app: snip-cms-be
+spec:
+  selector:
+    matchLabels:
+      app: snip-cms-be
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: 
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: snip-cms-be
+    spec:
+      containers:
+      - name: snip-cms-be
+#        image: registry.smartcitynusantara.id/scnhub/snip-cms-be:development
+        image: svcsmartcity/snip:snip-cms-be-development
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - name: snip-cms-be-public
+          mountPath: "/usr/src/application/public"
+        resources:
+          requests:
+            memory: "256Mi" # 64MB
+            cpu: "200m" # 0.5 core
+          limits:
+            memory: "512Mi" # 128MB
+            cpu: "400m" # 1 core
+      imagePullSecrets:
+      - name: regcred
+      securityContext: {}
+      volumes:
+      - name: snip-cms-be-public
+        persistentVolumeClaim:
+          claimName: pvc-snip-cms-be

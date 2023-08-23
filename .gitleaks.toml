@@ -1,0 +1,14 @@
+[[rules]]
+	description = "Hardcoded credentials in JavaScript or TypeScript files"
+	file = '''^(.*?)\.(?:j|t)s$'''
+	regex = '''(?i)(?:secret|key|signature|password|pwd|pass|token)(?:\w|\s*?)(?:=){1}(?:\s{0,10})[\"'`](.*?)[\"'`]'''
+	tags = ["credentials", "hardcoded", "js"]
+	[[rules.Entropies]]
+		Min = "3"
+		Max = "7"
+		Group = "1"
+
+[allowlist]
+  files = ["Dockerfile","Jenkinsfile"]
+  paths = ['''views''','''public''']
+  commits = ["4a2453ef4e763b64adc771a0e9d0f7723b2f5de2"]
