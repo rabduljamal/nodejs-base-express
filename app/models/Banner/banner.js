@@ -5,12 +5,11 @@ const sequelizePaginate = require('sequelize-paginate');
 module.exports = (sequelize, DataTypes) => {
   class banner extends Model {
     static associate(models) {
-      models.profile.belongsTo(models.dashboard, { foreignKey: 'dashboard_id' })
+      // models.profile.belongsTo(models.dashboard, { foreignKey: 'dashboard_id' })
     }
   };
 
   banner.init({
-    dashboard_id: DataTypes.INTEGER,
     title: DataTypes.STRING,
     sort: DataTypes.INTEGER,
     url: DataTypes.TEXT,
