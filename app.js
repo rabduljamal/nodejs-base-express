@@ -23,7 +23,10 @@ const optionsAccessControl = {
 	allows: [
     '127.0.0.1', 
     '::1', 
-    '10.42.1.0/16'
+    '10.42.1.0/16',
+    '172.17.0.0/16',
+    '10.255.18.83',
+    '0.0.0.0/0',
   ],
 	forceConnectionAddress: false,
 	log: function(clientIp, access) {

@@ -129,10 +129,10 @@ router.post('/register', Validator.Register, async(req, res, next) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(200).json({
-            code: 40,
-            status: "error",
-            message: (errors['errors'][0].param+" "+errors['errors'][0].msg),
-            result: errors['errors'],
+                code: 40,
+                status: "error",
+                message: (errors['errors'][0].param+" "+errors['errors'][0].msg),
+                result: errors['errors'],
             });
         }
 

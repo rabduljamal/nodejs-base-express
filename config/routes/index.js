@@ -12,14 +12,14 @@ var controllers_router = async function(){
   //   }
   // })
 
-  app.use(route+'/role', require(route_path+'/Role/RoleControllers'));
-  app.use(route+'/dashboard', require(route_path+'/Dashboard/DashboardControllers'));
-  app.use(route+'/area', require(route_path+'/DataMaster/AreaControllers'));
-  app.use(route+'/menu', require(route_path+'/Menu/MenuItemControllers'));
-  app.use(route+'/menu/master', require(route_path+'/Menu/MasterMenuControllers'));
+  // #app.use(route+'/role', require(route_path+'/Role/RoleControllers'));
+  // #app.use(route+'/dashboard', require(route_path+'/Dashboard/DashboardControllers'));
+  // #app.use(route+'/area', require(route_path+'/DataMaster/AreaControllers'));
+  // #app.use(route+'/menu', require(route_path+'/Menu/MenuItemControllers'));
+  // #app.use(route+'/menu/master', require(route_path+'/Menu/MasterMenuControllers'));
   app.use(route+'/oauth', require(route_path+'/Auth/AuthControllers'));
   app.use(route+'/banner', require(route_path+'/Banner/BannerControllers'));
-  app.use(route+'/user-dashboard', require(route_path+'/User/UserDashboardController'));
+  // #app.use(route+'/user-dashboard', require(route_path+'/User/UserDashboardController'));
 
 }
 

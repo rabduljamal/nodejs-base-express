@@ -13,42 +13,14 @@ module.exports = {
         type: Sequelize.STRING,
         unique: true
       },
-      email: {
+      password: {
         allowNull: false,
         type: Sequelize.TEXT,
       },
-      first_name: {
+      role: {
         allowNull: false,
-        type: Sequelize.TEXT,
+        type: Sequelize.ENUM('superadmin', 'admin', 'user'),
       },
-      last_name: {
-        allowNull: false,
-        type: Sequelize.TEXT,
-      },
-      phone: {
-        allowNull: false,
-        type: Sequelize.TEXT,
-      },
-      photo: {
-        allowNull: false,
-        type: Sequelize.TEXT,
-      },
-      type: {
-        allowNull: false,
-        type: Sequelize.ENUM('internal', 'external'),
-      },
-      status: {
-        allowNull: false,
-        type: Sequelize.ENUM('active', 'inactive'),
-      },
-      ssoUserId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-      },
-      // role: {
-      //   allowNull: false,
-      //   type: Sequelize.ENUM('superadmin', 'admin', 'user'),
-      // },
       createdAt: {
         type: Sequelize.DATE,
       },
